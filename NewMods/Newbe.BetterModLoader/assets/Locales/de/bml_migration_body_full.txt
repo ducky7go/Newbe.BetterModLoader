@@ -1,0 +1,15 @@
+<color=#50C8FF>▶ Warum sehen Sie diesen Bildschirm?</color>
+
+Das von Ihnen aktivierte Mod „Better Mod Loader“ wurde aktualisiert! Der neue Mod-Loader übernimmt vollständig das alte System. Er <color=#00E5FF><b>unterstützt jederzeitiges Rollback</b></color> und verändert keine Daten (Aktivierungsstatus/Sortierung) im ursprünglichen Manager – kein Risiko für Chaos.
+
+<color=#50C8FF>▶ Zentrale Vorteile:</color>
+
+• <b>Flexiblere Gruppierung & Sortierung</b>: Behebt chaotische Standardregeln. Doppelklick, um Mods oben/unten zu fixieren und die Reihenfolge zu sperren;
+• <b>Klarere Fehlermeldungen</b>: Verhindert, dass HD-Funktionen durch Ladefehler fehlschlagen – Probleme sind sofort sichtbar;
+• <b>Bequemere Bedienung</b>: Mod-Ordner/Steam-Seiten direkt öffnen für doppelte Effizienz.
+
+<color=#50C8FF>▶ Zukünftige Pläne:</color>
+
+Neue Funktionen wie Mod-Uploads, Shortcuts und intelligente Kategorisierung werden hinzugefügt – wir verstehen die Community besser als das offizielle Team!
+
+<color=#FFEB3B><b>→ Jetzt aktivieren für ein reibungsloseres Mod-Management!</b></color>

@@ -1,0 +1,63 @@
+<b>Schnellstart-Anleitung</b>
+
+Willkommen bei Better Mod Loader (BML)! Diese Anleitung hilft Ihnen, die Kernfunktionen von BML schnell zu meistern.
+
+<b>Kern-Gruppenverwaltung</b>
+
+* <b>Gruppen erstellen</b>: Klicken Sie auf "Gruppe hinzufügen", um neue Mod-Gruppen zu erstellen.
+* <b>Gruppen anordnen</b>: Ziehen Sie Gruppen-Header, um ihre Reihenfolge neu zu ordnen.
+* <b>Gruppen umbenennen</b>: Doppelklicken Sie auf Gruppennamen zum Umbenennen.
+* <b>Mods kategorisieren</b>: Ziehen Sie Mods auf Gruppen zur schnellen Kategorisierung.
+* <b>Lade-Logik</b>: Das Spiel lädt zuerst nach Gruppenreihenfolge, dann Mods innerhalb jeder Gruppe.
+
+<b>Sequenzielle Gruppen (Lade-Reihenfolge)</b>
+
+* <b>Konzept sequenzieller Gruppen</b>: Sequenzielle Gruppen sind entscheidend für die Ladepriorität von Mods, wobei Gruppen nacheinander geladen werden.
+* <b>Lade-Mechanismus</b>: Der Loader folgt streng der Sequenz: Gruppe 1 → Gruppe 2 → Gruppe 3...
+* <b>Abhängigkeitsmanagement</b>: Platzieren Sie Mods mit Abhängigkeiten in der richtigen Reihenfolge, um sicherzustellen, dass Abhängigkeiten zuerst geladen werden.
+* <b>Überschreibungssteuerung</b>: Mods, die andere Mod-Funktionen überschreiben müssen, sollten in späteren sequenziellen Gruppen platziert werden.
+* <b>Unterscheidung</b>: Sequenzielle Gruppen konzentrieren sich auf "Lade-Reihenfolge", nicht auf einfache Kategorisierung.
+* <b>Dynamische Anpassung</b>: Ziehen Sie, um sequenzielle Gruppenpositionen anzupassen; Änderungen werden beim nächsten Spielstart wirksam.
+
+<b>Mod-Sortierung und Operationen</b>
+
+* <b>Präzise Anpassung</b>: Verwenden Sie die Auf-/Ab-Tasten rechts, um Mod-Positionen schrittweise anzupassen.
+* <b>Schnell Anfang/Ende</b>: Doppelklick auf die Auf-/Ab-Tasten verschiebt Mods sofort zum Gruppenanfang/-ende.
+* <b>Drag-Sortierung</b>: Ziehen Sie Mods direkt an Zielpositionen zur Sortierung.
+* <b>Batch-Operationen</b>: Ein-Klick-Aktivierung/Deaktivierung für aktuelle Gruppe oder alle Mods.
+* <b>Status-Management</b>: Echtzeitansicht des aktivierten/deaktivierten Status jedes Mods.
+
+<b>Hilfswerkzeuge und Modi</b>
+
+* <b>Schnellzugriff</b>: Rechtsklick auf Mods zum direkten Öffnen ihrer Ordner oder Steam-Workshop-Seiten.
+* <b>Entwicklermodus</b>: Wenn aktiviert, können Sie folgende wichtigen Ordner anzeigen und verwalten:
+  - <b>Mod-Ordner</b>: Enthält alle heruntergeladenen Mod-Dateien
+  - <b>Persistenter Spieldaten-Ordner</b>: Speicherstände und Spieldaten
+  - <b>Konfigurations-Ordner</b>: BML- und andere Plugin-Konfigurationsdateien
+* <b>Fehlerbehebung</b>: Bei Mod-Problemen relevante Dateien schnell über den Entwicklermodus finden.
+
+<b>Upload-Funktionen & Mehrsprachige Unterstützung</b>
+
+* <b>Mod-Upload</b>: Unterstützung für direktes Hochladen Ihrer Mods zur Steam Workshop, um den Veröffentlichungsprozess zu vereinfachen.
+* <b>Mehrsprachige Beschreibungen</b>:
+  - Unterstützung für das Erstellen detaillierter Beschreibungen in mehreren Sprachen für Ihre Mods
+  - Lokalisierte Feature-Einführungen für Benutzer verschiedener Sprachen bereitstellen
+  - Automatische Anzeige von Beschreibungen basierend auf den Steam-Spracheinstellungen der Benutzer
+* <b>Mehrsprachige Titel-Updates</b>:
+  - Unterstützung für das Festlegen verschiedener Sprachtitel für Mods
+  - Einzigartige Mod-Namen für jede Sprachversion anpassen
+  - Wiedererkennung bei Benutzern aus verschiedenen Regionen verbessern
+* <b>Tag-System</b>:
+  - Funktionale Tags zu Mods hinzufügen (z.B. Interface, Spielmechanik, Neuer Inhalt)
+  - Typ-Tags hinzufügen (z.B. Verbesserung, Patch, Erweiterungspaket)
+  - Kompatibilitäts-Tags hinzufügen (z.B. Mehrspieler-kompatibel, Spezifische Versionsanforderungen)
+  - Tags helfen Benutzern dabei, schnell nach interessanten Mods zu filtern und zu entdecken
+
+<b>Verwendungstipps</b>
+
+* <b>Gruppierungsvorschläge</b>: Nach Funktion kategorisieren (z.B. UI-Verbesserung, Spielmechanik, Inhaltserweiterung)
+* <b>Performance-Optimierung</b>: Große Inhalts-Mods zuerst, kleine Utility-Mods später platzieren
+* <b>Kompatibilitätsprüfung</b>: Sequenzielle Gruppen verwenden, um Kompatibilität und korrekte Ladereihenfolge zwischen Mods sicherzustellen
+* <b>Mehrsprachige Strategie</b>: Mehrsprachige Unterstützung zu Mods hinzufügen, um die Zielgruppe zu erweitern
+* <b>Tag-Optimierung</b>: Genaue Tags verwenden, um Mod-Sichtbarkeit und Download-Zahlen zu verbessern
+* <b>Regelmäßige Wartung</b>: Regelmäßig auf Mod-Updates prüfen und ungenutzte Mods bereinigen

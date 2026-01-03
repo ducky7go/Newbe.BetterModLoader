@@ -1,0 +1,10 @@
+<color=#FF8A80>▶ Bereit, Better Mod Loader zu deaktivieren?</color>
+
+Bevor Sie gehen, könnten Sie uns ein kurzes Feedback geben? Es hilft uns, das Mod für alle zu verbessern!
+• Gab es ein bestimmtes Problem (z. B. Ladefehler, UI-Fehler), das Sie zur Deaktivierung bewegt hat?
+• Hat eine Funktion nicht wie erwartet funktioniert (z. B. Gruppierung/Sortierung, Steam-Seitenzugriff)?
+• Haben Sie weitere Vorschläge, was wir hinzufügen oder anpassen sollten?
+
+Hinweis: Das Deaktivieren beeinflusst Ihre ursprünglichen Mod-Daten nicht – Ihr Aktivierungsstatus und die Sortierung bleiben erhalten. Sie können dieses Mod jederzeit wieder aktivieren, wenn Sie Ihre Meinung ändern!
+
+<color=#FFCCBC><b>→ Hinterlassen Sie gerne Feedback im Community-Thread, danke fürs Ausprobieren!</b></color>

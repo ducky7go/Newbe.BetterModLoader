@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <ModName>Newbe.BetterModLoader</ModName>
+    <IncludeHarmony>true</IncludeHarmony>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Ducky.Sdk">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="LiteDB" />
+    <PackageReference Include="R3" />
+    <PackageReference Include="ObservableCollections.R3" />
+<!--    <Reference Include="$(ManagedDirectory)/FMODUnity.dll" />-->
+    <Reference Include="FMODUnity">
+      <HintPath>..\..\..\..\..\.local\share\Steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed\FMODUnity.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+
+  <!--  internal visiable to test project-->
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>Newbe.BetterModLoader.Tests</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,15 @@
+<color=#50C8FF>▶ Why Are You Seeing This Screen?</color>
+
+The "Better Mod Loader" mod you enabled has been updated! The new mod loader will fully take over the old system. It also <color=#00E5FF><b>supports rollback anytime</b></color> and won’t modify any data (enabled status/sorting) in the original manager—no risk of chaos.
+
+<color=#50C8FF>▶ Core Advantages:</color>
+
+• <b>More Flexible Grouping & Sorting</b>: Fixes messy default rules. Double-click to pin mods to top/bottom for easy order locking;
+• <b>Clearer Error Alerts</b>: Prevents HD features from failing due to mod loading errors—issues are visible at a glance;
+• <b>More Convenient Operation</b>: Open mod folders/Steam pages directly for doubled efficiency.
+
+<color=#50C8FF>▶ Future Plans:</color>
+
+New features like mod uploads, shortcuts, and intelligent categorization will be added—we understand the community better than the official team!
+
+<color=#FFEB3B><b>→ Enable Now for a Smoother Mod Management Experience!</b></color>

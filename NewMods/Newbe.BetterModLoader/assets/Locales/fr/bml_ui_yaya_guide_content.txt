@@ -1,0 +1,63 @@
+<b>Guide de démarrage rapide</b>
+
+Bienvenue dans Better Mod Loader (BML) ! Ce guide vous aidera à maîtriser rapidement les fonctionnalités principales de BML.
+
+<b>Gestion principale des groupes</b>
+
+* <b>Créer des groupes</b> : Cliquez sur le bouton "Ajouter un groupe" pour créer de nouveaux groupes de mods.
+* <b>Réorganiser les groupes</b> : Glissez-déposez les en-têtes de groupes pour réorganiser leur ordre.
+* <b>Renommer les groupes</b> : Double-cliquez sur les noms de groupes pour les renommer.
+* <b>Catégoriser les mods</b> : Glissez les mods sur les groupes pour les catégoriser rapidement.
+* <b>Logique de chargement</b> : Le jeu charge d'abord par ordre de groupe, puis les mods dans chaque groupe.
+
+<b>Groupes séquentiels (ordre de chargement)</b>
+
+* <b>Concept de groupes séquentiels</b> : Les groupes séquentiels sont essentiels pour déterminer la priorité de chargement des mods, avec les groupes chargés les uns après les autres.
+* <b>Mécanisme de chargement</b> : Le chargeur suit strictement la séquence : Groupe 1 → Groupe 2 → Groupe 3...
+* <b>Gestion des dépendances</b> : Placez les mods avec dépendances dans le bon ordre pour garantir que les dépendances se chargent en premier.
+* <b>Contrôle de remplacement</b> : Les mods qui doivent remplacer les fonctions d'autres mods devraient être placés dans des groupes séquentiels ultérieurs.
+* <b>Distinction</b> : Les groupes séquentiels se concentrent sur "l'ordre de chargement", pas sur la simple catégorisation.
+* <b>Ajustement dynamique</b> : Glissez pour ajuster les positions des groupes séquentiels ; les changements prendront effet au prochain démarrage du jeu.
+
+<b>Tri et opérations des mods</b>
+
+* <b>Ajustement précis</b> : Utilisez les boutons haut/bas à droite pour ajuster les positions des mods étape par étape.
+* <b>Destination rapide haut/bas</b> : Double-cliquez sur les boutons haut/bas pour déplacer instantanément les mods en haut/en bas du groupe.
+* <b>Tri par glissement</b> : Glissez directement les mods vers les positions cibles pour les trier.
+* <b>Opérations par lot</b> : Support de l'activation/désactivation en un clic pour le groupe actuel ou tous les mods.
+* <b>Gestion de l'état</b> : Affichez en temps réel l'état activé/désactivé de chaque mod.
+
+<b>Outils et modes auxiliaires</b>
+
+* <b>Accès rapide</b> : Clic droit sur les mods pour ouvrir directement leurs dossiers ou pages Steam Workshop.
+* <b>Mode développeur</b> : Quand activé, vous pouvez afficher et gérer les dossiers clés suivants :
+  - <b>Dossier de mods</b> : Contient tous les fichiers de mods téléchargés
+  - <b>Dossier de données persistantes du jeu</b> : Fichiers de sauvegarde et données de jeu
+  - <b>Dossier de configuration</b> : Fichiers de configuration BML et autres plugins
+* <b>Dépannage</b> : En cas de problèmes de mods, localisez rapidement les fichiers pertinents via le mode développeur.
+
+<b>Fonctionnalités d'upload et support multilingue</b>
+
+* <b>Upload de mods</b> : Support pour l'upload direct de vos mods sur Steam Workshop, simplifiant le processus de publication.
+* <b>Descriptions multilingues</b> :
+  - Support pour créer des descriptions détaillées en plusieurs langues pour vos mods
+  - Fournir des introductions de fonctionnalités localisées pour les utilisateurs de différentes langues
+  - Affichage automatique des descriptions basé sur les paramètres de langue Steam des utilisateurs
+* <b>Mises à jour de titres multilingues</b> :
+  - Support pour définir différents titres de langue pour les mods
+  - Personnaliser des noms de mods uniques pour chaque version linguistique
+  - Améliorer la reconnaissance chez les utilisateurs de différentes régions
+* <b>Système de balises</b> :
+  - Ajouter des balises fonctionnelles aux mods (ex. Interface, Mécaniques de jeu, Nouveau contenu)
+  - Ajouter des balises de type (ex. Amélioration, Correctif, Pack d'extension)
+  - Ajouter des balises de compatibilité (ex. Compatible multijoueur, Exigences de version spécifiques)
+  - Les balises aident les utilisateurs à filtrer et découvrir rapidement les mods qui les intéressent
+
+<b>Conseils d'utilisation</b>
+
+* <b>Suggestions de regroupement</b> : Catégoriser par fonction (ex. Amélioration UI, Mécaniques de jeu, Extension de contenu)
+* <b>Optimisation des performances</b> : Placez les grands mods de contenu en premier, les petits mods utilitaires en dernier
+* <b>Vérification de compatibilité</b> : Utilisez des groupes séquentiels pour assurer la compatibilité et le bon ordre de chargement entre les mods
+* <b>Stratégie multilingue</b> : Ajoutez un support multilingue aux mods pour étendre la portée de l'audience
+* <b>Optimisation des balises</b> : Utilisez des balises précises pour améliorer la visibilité et les nombres de téléchargement des mods
+* <b>Maintenance régulière</b> : Vérifiez régulièrement les mises à jour des mods et nettoyez les mods inutilisés

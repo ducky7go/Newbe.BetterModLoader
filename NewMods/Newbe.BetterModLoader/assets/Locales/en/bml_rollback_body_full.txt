@@ -1,0 +1,10 @@
+<color=#FF8A80>▶ Ready to Disable Better Mod Loader?</color>
+
+Before you go, could you share a quick feedback? It’ll help us improve for everyone!  
+• Is there a specific issue (e.g., loading errors, UI glitches) that made you stop using it?  
+• Did a feature not work as expected (e.g., grouping/sorting, Steam page access)?  
+• Any other suggestions you think we should add or adjust?  
+
+Note: Disabling won’t affect your original mod data—your enabled status and sorting will stay intact. You can always re-enable this mod later if you change your mind!
+
+<color=#FFCCBC><b>→ Feel free to leave feedback in our community thread, thanks for trying!</b></color>

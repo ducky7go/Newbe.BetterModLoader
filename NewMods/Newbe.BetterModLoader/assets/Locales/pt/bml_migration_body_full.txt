@@ -1,0 +1,15 @@
+<color=#50C8FF>▶ Por que você está vendo esta tela?</color>
+
+O mod "Better Mod Loader" que você ativou foi atualizado! O novo carregador de mods irá substituir completamente o sistema antigo. Ele também <color=#00E5FF><b>suporta rollback a qualquer momento</b></color> e não modifica nenhum dado (status de ativação/ordem) no gerenciador original—sem risco de confusão.
+
+<color=#50C8FF>▶ Vantagens principais:</color>
+
+• <b>Agrupamento e ordenação mais flexíveis</b>: Corrige regras padrão confusas. Clique duplo para fixar mods no topo/base e bloquear a ordem facilmente;
+• <b>Alertas de erro mais claros</b>: Evita falhas de recursos HD devido a erros de carregamento de mods—problemas visíveis imediatamente;
+• <b>Operação mais conveniente</b>: Abra pastas de mods/páginas da Steam diretamente para dobrar a eficiência.
+
+<color=#50C8FF>▶ Planos futuros:</color>
+
+Novos recursos como upload de mods, atalhos e categorização inteligente serão adicionados—entendemos a comunidade melhor que a equipe oficial!
+
+<color=#FFEB3B><b>→ Ative agora para uma experiência de gerenciamento de mods mais suave!</b></color>

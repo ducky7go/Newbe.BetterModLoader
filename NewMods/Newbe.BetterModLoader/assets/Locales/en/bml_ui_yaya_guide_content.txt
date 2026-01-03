@@ -1,0 +1,63 @@
+<b>Quick Start Guide</b>
+
+Welcome to Better Mod Loader (BML)! This guide will help you quickly master the core features of BML.
+
+<b>Core Group Management</b>
+
+* <b>Create Groups</b>: Click the "Add Group" button to create new mod groups.
+* <b>Reorder Groups</b>: Drag and drop group headers to rearrange their order.
+* <b>Rename Groups</b>: Double-click on group names to rename them.
+* <b>Categorize Mods</b>: Drag mods onto groups to quickly categorize them.
+* <b>Loading Logic</b>: The game loads by group order first, then loads mods within each group.
+
+<b>Sequential Groups (Load Order)</b>
+
+* <b>Sequential Group Concept</b>: Sequential groups are key to determining mod loading priority, with groups loaded one after another.
+* <b>Loading Mechanism</b>: The loader strictly follows the sequence: Group 1 → Group 2 → Group 3...
+* <b>Dependency Management</b>: Place mods with dependencies in the correct order to ensure dependencies load first.
+* <b>Override Control</b>: Mods that need to override other mod functions should be placed in later sequential groups.
+* <b>Distinction</b>: Sequential groups focus on "load order", not simple categorization.
+* <b>Dynamic Adjustment</b>: Drag to adjust sequential group positions; changes take effect on next game startup.
+
+<b>Mod Sorting and Operations</b>
+
+* <b>Precise Adjustment</b>: Use the up/down buttons on the right to adjust mod positions step by step.
+* <b>Quick Top/Bottom</b>: Double-click the up/down buttons to instantly move mods to group top/bottom.
+* <b>Drag Sorting</b>: Directly drag mods to target positions for sorting.
+* <b>Batch Operations</b>: Support one-click enable/disable for current group or all mods.
+* <b>Status Management</b>: View real-time enabled/disabled status of each mod.
+
+<b>Auxiliary Tools and Modes</b>
+
+* <b>Quick Access</b>: Right-click on mods to directly open their folders or Steam Workshop pages.
+* <b>Developer Mode</b>: When enabled, you can view and manage the following key folders:
+  - <b>Mod Folder</b>: Contains all downloaded mod files
+  - <b>Game Persistent Data Folder</b>: Save files and game data
+  - <b>Configuration Folder</b>: BML and other plugin configuration files
+* <b>Troubleshooting</b>: When encountering mod issues, quickly locate relevant files through Developer Mode.
+
+<b>Upload Features & Multi-language Support</b>
+
+* <b>Mod Upload</b>: Support for direct uploading your mods to Steam Workshop, simplifying the publishing process.
+* <b>Multi-language Descriptions</b>:
+  - Support for creating detailed descriptions in multiple languages for your mods
+  - Provide localized feature introductions for users of different languages
+  - Automatically display descriptions based on users' Steam language settings
+* <b>Multi-language Title Updates</b>:
+  - Support for setting different language titles for mods
+  - Customize unique mod names for each language version
+  - Improve recognition among users from different regions
+* <b>Tag System</b>:
+  - Add functional tags to mods (e.g., Interface, Gameplay Mechanics, New Content)
+  - Add type tags (e.g., Enhancement, Patch, Expansion Pack)
+  - Add compatibility tags (e.g., Multiplayer Compatible, Specific Version Requirements)
+  - Tags help users quickly filter and discover mods they're interested in
+
+<b>Usage Tips</b>
+
+* <b>Grouping Suggestions</b>: Categorize by function (e.g., UI Enhancement, Gameplay Mechanics, Content Expansion)
+* <b>Performance Optimization</b>: Place large content mods first, and small utility mods later
+* <b>Compatibility Check</b>: Use sequential groups to ensure compatibility and proper loading order between mods
+* <b>Multi-language Strategy</b>: Add multi-language support to mods to expand audience reach
+* <b>Tag Optimization</b>: Use accurate tags to improve mod visibility and download counts
+* <b>Regular Maintenance</b>: Regularly check for mod updates and clean up unused mods

@@ -1,0 +1,47 @@
+<Project>
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <ImplicitUsings>false</ImplicitUsings>
+    <LangVersion>preview</LangVersion>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+
+  <ItemGroup Condition=" '$(WeCode)' != '' ">
+    <!-- Link the description file for the specific WeCode -->
+    <Content Include="..\..\subModAssets\description\$(WeCode).md" Link="assets/description.md"
+             CopyToOutputDirectory="PreserveNewest" />
+    <DescriptionMd Include="..\..\subModAssets\description\$(WeCode).md" />
+    <!-- Link the preview image for the specific WeCode -->
+    <Content Include="..\..\subModAssets\previews\$(WeCode).png" Link="assets/preview.png"
+             CopyToOutputDirectory="PreserveNewest" />
+    <PreviewPng Include="..\..\subModAssets\previews\$(WeCode).png" />
+  </ItemGroup>
+
+
+  <ItemGroup Condition=" '$(WeCode)' != '' ">
+    <LocalsFiles Include="../Newbe.Dod/Locales/**/*.csv" />
+    <ProjectReference Include="..\Newbe.Dod.Common\Newbe.Dod.Common.csproj" />
+  </ItemGroup>
+
+  <Target Name="CopyDodShared" AfterTargets="CopyToDuckov"
+          Condition=" '$(DuckovPath)' != '' AND '$(ModName)' != '' AND '$(DeployMod)' != 'false' AND $([System.String]::Copy('$(AssemblyName)').StartsWith('Newbe.Dod')) ">
+    <!-- Ensure icons destination exists and copy all PNGs preserving folder structure -->
+    <MakeDir Directories="$(ModsDirectory)$(ModName)/icons/" />
+    <Copy SourceFiles="@(PngFiles)"
+          DestinationFiles="@(PngFiles->'$(ModsDirectory)$(ModName)/icons/%(RecursiveDir)%(Filename)%(Extension)')"
+          SkipUnchangedFiles="false" />
+    <!-- Ensure locales destination exists and copy all locale CSVs preserving folder structure -->
+    <MakeDir Directories="$(ModsDirectory)$(ModName)/Locales/" />
+
+    <Copy SourceFiles="@(LocalsFiles)"
+          DestinationFiles="@(LocalsFiles->'$(ModsDirectory)$(ModName)/Locales/%(RecursiveDir)%(Filename)%(Extension)')"
+          SkipUnchangedFiles="false" />
+  </Target>
+  <Target Name="RemoveIfDeployModFalse" AfterTargets="Build"
+          Condition=" '$(DuckovPath)' != '' AND '$(ModName)' != '' AND '$(DeployMod)' == 'false' ">
+    <RemoveDir Directories="$(ModsDirectory)$(ModName)" />
+  </Target>
+
+  <Import Project="Directory.Build.props.user" Condition="Exists('Directory.Build.props.user')" />
+</Project>
