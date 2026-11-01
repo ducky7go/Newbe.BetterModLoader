@@ -31,7 +31,6 @@ Newbe.BetterModLoader ("BML", Better Mod Loader) is a Unity mod for the game "Es
 - UI follows an MVVM split with R3 (`View.cs` / `Vm.cs` pairs, `ReactiveProperty`, `ObservableCollections`); async work uses UniTask (`.Forget()` for fire-and-forget).
 - Localization: add keys to `LK.cs` (`bml_...`), let the Ducky.Sdk build regenerate `assets/Locales/*.csv`, `lkeys.json` and `keys.hash.txt`, then fill all 10 languages (`en, zh, zh-hant, ja, ko, fr, de, es, ru, pt`).
 - Harmony patches must stay non-breaking across game updates (`../../openspec/projects/Newbe.BetterModLoader/project.md`); patches are applied selectively in `PatchFull()` in `ModBehaviour.cs`, not via blanket `PatchAll`.
-- Git history in this checkout is a single "init version" commit; no commit-message convention is visible.
 
 ## Gotchas
 
