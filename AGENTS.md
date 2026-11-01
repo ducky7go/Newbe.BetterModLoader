@@ -1,27 +1,13 @@
-<!-- OPENSPEC:START -->
-# OpenSpec Instructions
+## OpenSpec
 
-These instructions are for AI assistants working in this project.
+This repo has no `openspec/` directory. OpenSpec for all `ducky7go-mono` sub-repos lives in the parent repo: `../../openspec/` (workflow rules `../../openspec/AGENTS.md`, specs `../../openspec/specs/`, changes `../../openspec/changes/`). This repo's former project context is `../../openspec/projects/Newbe.BetterModLoader/project.md`.
 
-Always open `@/openspec/AGENTS.md` when the request:
-- Mentions planning or proposals (words like proposal, spec, change, plan)
-- Introduces new capabilities, breaking changes, architecture shifts, or big performance/security work
-- Sounds ambiguous and you need the authoritative spec before coding
-
-Use `@/openspec/AGENTS.md` to learn:
-- How to create and apply change proposals
-- Spec format and conventions
-- Project structure and guidelines
-
-Keep this managed block so 'openspec update' can refresh the instructions.
-
-<!-- OPENSPEC:END -->
 
 # Newbe.BetterModLoader - AI Coding Assistant Instructions
 
 ## Project overview
 
-Newbe.BetterModLoader ("BML", Better Mod Loader) is a Unity mod for the game "Escape from Duckov" that takes over the game's `ModManager` with Harmony patches and provides its own mod-management UI: mod groups, activation ordering, an activation progress panel, deployment/migration/rollback and backup, and developer tools for uploading mods to Steam Workshop. Per `README.md` the project is in **maintenance mode: bug fixes only, no new features**; new users are pointed to the SuperDucky launcher (`ducky7go/SuperDucky`). It is built on the `Ducky.Sdk` NuGet package (mod `info.ini` currently `version = 2.0.3`, Workshop id in `publishedFileId`). The repo is open source at `ducky7go/Newbe.BetterModLoader`. Specs/proposals use OpenSpec (`openspec/AGENTS.md`, `openspec/project.md`; no `specs/` or `changes/` directories are committed yet).
+Newbe.BetterModLoader ("BML", Better Mod Loader) is a Unity mod for the game "Escape from Duckov" that takes over the game's `ModManager` with Harmony patches and provides its own mod-management UI: mod groups, activation ordering, an activation progress panel, deployment/migration/rollback and backup, and developer tools for uploading mods to Steam Workshop. Per `README.md` the project is in **maintenance mode: bug fixes only, no new features**; new users are pointed to the SuperDucky launcher (`ducky7go/SuperDucky`). It is built on the `Ducky.Sdk` NuGet package (mod `info.ini` currently `version = 2.0.3`, Workshop id in `publishedFileId`). The repo is open source at `ducky7go/Newbe.BetterModLoader`. Specs/proposals use OpenSpec, kept in the parent repo (see the OpenSpec note above).
 
 ## Repository layout
 
@@ -29,7 +15,7 @@ Newbe.BetterModLoader ("BML", Better Mod Loader) is a Unity mod for the game "Es
 - `NewMods/Newbe.BetterModLoader/` - the only mod project (`Newbe.BetterModLoader.csproj`: `ModName=Newbe.BetterModLoader`, `IncludeHarmony=true`, references `Ducky.Sdk`, `LiteDB`, `R3`, `ObservableCollections.R3`). Main folders: `Main/` (mod manager UI view/VM), `Patches/` (Harmony patches on `ModManager`, `FadeGroupButton`), `Deployments/` (deployment, migration, rollback, old-manager backup), `DeveloperModes/` and `DeveloperInfos/` (local-mod panel, Steam Workshop upload), `ModDataChecks/`, `UI/`, `Audio/`, `Utils/`. Entry point: `ModBehaviour.cs` (`ModBehaviourBase`, Harmony id `bettermodloader`); persistence in `ModLoaderSaveSystem.cs` (under `Application.persistentDataPath/Newbe/Newbe.BetterModLoader`); localization keys in `LK.cs` (`bml_` prefix, 10 languages), constants in `CK.cs`.
 - `NewMods/Newbe.BetterModLoader/assets/` - `info.ini`, `preview.png`, `title/` and `description/` per language, `Locales/` (per-language CSV plus long-text files), generated `lkeys.json` / `keys.hash.txt`, and `Resources/` (fonts, PNG/vector icons, sounds).
 - `Tests/Newbe.BetterModLoader.Tests/` - NUnit + NSubstitute + Shouldly tests (`DeveloperInfoPanelTests`, `ModActivationProgressPanelTests`, `UploadValidationTests`); the mod project exposes internals to it via `InternalsVisibleTo`.
-- `deploy.sh` - release script (see below). `Directory.Packages.props` - central package versions. `nuget.config` - maps `Ducky.Sdk` to the MyGet feed `https://www.myget.org/F/ducky/api/v3/index.json`, everything else to nuget.org. `.claude/commands/openspec/` - OpenSpec slash commands.
+- `deploy.sh` - release script (see below). `Directory.Packages.props` - central package versions. `nuget.config` - maps `Ducky.Sdk` to the MyGet feed `https://www.myget.org/F/ducky/api/v3/index.json`, everything else to nuget.org.
 
 ## Build / test / run
 
@@ -44,7 +30,7 @@ Newbe.BetterModLoader ("BML", Better Mod Loader) is a Unity mod for the game "Es
 - Code comments and log messages mix English and Chinese; keep the existing style of the file you edit. Log with `Ducky.Sdk.Logging.Log` and the `[BetterModLoader]` prefix; global usings are in `GlobalUsings.cs`.
 - UI follows an MVVM split with R3 (`View.cs` / `Vm.cs` pairs, `ReactiveProperty`, `ObservableCollections`); async work uses UniTask (`.Forget()` for fire-and-forget).
 - Localization: add keys to `LK.cs` (`bml_...`), let the Ducky.Sdk build regenerate `assets/Locales/*.csv`, `lkeys.json` and `keys.hash.txt`, then fill all 10 languages (`en, zh, zh-hant, ja, ko, fr, de, es, ru, pt`).
-- Harmony patches must stay non-breaking across game updates (`openspec/project.md`); patches are applied selectively in `PatchFull()` in `ModBehaviour.cs`, not via blanket `PatchAll`.
+- Harmony patches must stay non-breaking across game updates (`../../openspec/projects/Newbe.BetterModLoader/project.md`); patches are applied selectively in `PatchFull()` in `ModBehaviour.cs`, not via blanket `PatchAll`.
 - Git history in this checkout is a single "init version" commit; no commit-message convention is visible.
 
 ## Gotchas
