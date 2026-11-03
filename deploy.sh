@@ -1,6 +1,14 @@
 #!/bin/bash
 # Deployment script for Newbe.BetterModLoader
 
+# PUBLISHING IS DISABLED. BML will not be released on the Steam Workshop again
+# (see "Publishing: NOT ALLOWED" in AGENTS.md). This guard runs before anything
+# else, so nothing is bumped, built or pushed. Do not remove it to get around the
+# freeze; only the owner may lift it.
+echo "Error: Newbe.BetterModLoader is frozen and is no longer published to Steam." >&2
+echo "       See 'Publishing: NOT ALLOWED' in AGENTS.md. Nothing was changed." >&2
+exit 1
+
 set -e
 
 # Load environment variables from .env file
