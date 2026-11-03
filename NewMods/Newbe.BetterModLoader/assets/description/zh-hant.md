@@ -11,8 +11,3 @@
 ## 推薦新用戶
 
 推薦新用戶使用更強大的啟動器：https://github.com/ducky7go/SuperDucky
-
-## 技術支援
-
-需要技術支援、Bug 回報或建議？
-請訪問 **[Contact Me Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=3613778329)** 查看聯絡方式

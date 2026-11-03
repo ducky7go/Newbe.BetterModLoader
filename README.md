@@ -18,13 +18,6 @@ New users are recommended to use the more powerful launcher: [SuperDucky](https:
 
 推荐新用户使用功能更强大的启动器：[超级鸭鸭](https://github.com/ducky7go/SuperDucky)
 
-## Support
-
-Need technical support, bug reports, or suggestions?
-Please visit **[Contact Me Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=3613778329)** for contact information
-
-需要技术支持、bug 报告或建议？请访问 **[联系我 Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=3613778329)** 获取联系方式
-
 ## Development
 
 ### Prerequisites

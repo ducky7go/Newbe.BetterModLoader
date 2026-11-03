@@ -1,0 +1,19 @@
+{
+ "variants": {
+  "preview": {
+   "positive": "masterpiece, best quality, safe, no humans, duck, solo, upper body, puzzle piece, plug, cable, sparks, toolbox, determined, flat color, bold outlines, cartoon style, vivid colors, colorful, tidy, energetic, A cartoon duck in a small tool belt snaps a glowing puzzle piece into a big socket and fills the left and center of the frame from the waist up. Colorful plugs and neatly ordered puzzle blocks line up behind it with bright sparks at the connections. Warm light comes from the left and deep blue shadows fill the background. The lower right of the frame is a dark, quiet floor with a soft vignette.",
+   "negative": "worst quality, low quality, watermark, logo, text, signature, letters, humans, blurry, deformed, border, frame, tiny subject, empty background, multiple ducks",
+   "width": 1344,
+   "height": 768,
+   "unet": "anima-turbo-v1.1.safetensors",
+   "sampler": {
+    "steps": 10,
+    "cfg": 2,
+    "sampler": "euler",
+    "scheduler": "simple"
+   },
+   "seed": 22,
+   "_note": "img-gen steam-preview base: render with ab-prompt-test.mjs --seeds 22, then compose-preview.sh --base art/preview-base.png --out assets/preview.png"
+  }
+ }
+}
