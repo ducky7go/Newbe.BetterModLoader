@@ -9,6 +9,15 @@ This repo has no `openspec/` directory. OpenSpec for all `ducky7go-mono` sub-rep
 
 Newbe.BetterModLoader ("BML", Better Mod Loader) is a Unity mod for the game "Escape from Duckov" that takes over the game's `ModManager` with Harmony patches and provides its own mod-management UI: mod groups, activation ordering, an activation progress panel, deployment/migration/rollback and backup, and developer tools for uploading mods to Steam Workshop. Per `README.md` the project is in **maintenance mode: bug fixes only, no new features**; new users are pointed to the SuperDucky launcher (`ducky7go/SuperDucky`). It is built on the `Ducky.Sdk` NuGet package (mod `info.ini` currently `version = 2.0.3`, Workshop id in `publishedFileId`). The repo is open source at `ducky7go/Newbe.BetterModLoader`. Specs/proposals use OpenSpec, kept in the parent repo (see the OpenSpec note above).
 
+## Publishing: NOT ALLOWED
+
+**This mod will not be published or updated on the Steam Workshop again.** BML is in maintenance mode and the owner decided that no further release will be made; the monospec entry carries the tag `no-publish` (`.hagicode/monospecs.yaml` in the parent repo).
+
+- Do not run `./deploy.sh` (it now stops at its first line), `ducky steam push`, `ducky steam delete`, `ducky steam link --force` or `set-visibility.mjs` for this mod, and do not bump `version` in `assets/info.ini`.
+- This includes preview-only and description-only updates, and batch publishes of "all mods": skip `Newbe.BetterModLoader` (Workshop id `3596571766`).
+- Do not edit `publishedFileId`. Do not remove the guard in `deploy.sh` or the `no-publish` tag to get around this; only the owner may lift the freeze, in a request that says so explicitly.
+- Code changes, bug fixes in the repo and local builds (`dotnet build`) are not affected.
+
 ## Repository layout
 
 - `BML.slnx` - solution (the mod project and the test project). It also lists `NewMods/Directory.Build.props`, `NewNewMods/Directory.Build.props` and `SDKlibs/Directory.Build.props`; of these `NewNewMods/` and `SDKlibs/` do not exist in this checkout.
@@ -23,7 +32,7 @@ Newbe.BetterModLoader ("BML", Better Mod Loader) is a Unity mod for the game "Es
 - Tests: `dotnet test Tests/Newbe.BetterModLoader.Tests/Newbe.BetterModLoader.Tests.csproj` (standard NUnit project; not run here). The tests reference the mod project, which needs the game assemblies.
 - Target frameworks: `NewMods/Directory.Build.props` sets `netstandard2.1`, `LangVersion=preview`, `Nullable=enable`, `ImplicitUsings=false` for the mod. Because MSBuild picks the nearest `Directory.Build.props` (that file does not import the root one), the root `Directory.Build.props` (`net9.0`, `ModsDirectory=$(DuckovPath)Duckov_Data/Mods/`) applies to the test project, not to the mod.
 - Local paths: both `Directory.Build.props` files import an optional, git-ignored `Directory.Build.props.user` (`*.user` is in `.gitignore`). Ducky.Sdk resolves the game from `SteamFolder` / `DuckovFolder` / `ManagedDirectory` / `ModsDirectory`; put those there (or pass `-p:`). The csproj has a hard-coded relative `HintPath` to `FMODUnity.dll` under `~/.local/share/Steam/steamapps/common/Escape from Duckov/...`; adjust it on other machines.
-- Release/deploy (`./deploy.sh`): bumps the patch number of `version =` in `NewMods/Newbe.BetterModLoader/assets/info.ini`, runs `dotnet build -c Release`, then `ducky steam push "$MOD_PATH" --update-description` (requires `ducky-cli` and a `MOD_PATH` env value, see Gotchas). It publishes to the Steam Workshop, so do not run it casually.
+- Release/deploy (`./deploy.sh`): **disabled, see "Publishing: NOT ALLOWED".** The script exits before doing anything. Below the guard it still describes the old flow: bump the patch number of `version =` in `NewMods/Newbe.BetterModLoader/assets/info.ini`, run `dotnet build -c Release`, then `ducky steam push "$MOD_PATH" --update-description`.
 
 ## Conventions
 
