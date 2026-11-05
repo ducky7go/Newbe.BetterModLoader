@@ -1,56 +1,60 @@
-## OpenSpec
-
-This repo has no `openspec/` directory. OpenSpec for all `ducky7go-mono` sub-repos lives in the parent repo: `../../openspec/` (workflow rules `../../openspec/AGENTS.md`, specs `../../openspec/specs/`, changes `../../openspec/changes/`).
-
-
 # Newbe.BetterModLoader - AI Coding Assistant Instructions
 
 ## Project overview
 
-Newbe.BetterModLoader ("BML", Better Mod Loader) is a Unity mod for the game "Escape from Duckov" that takes over the game's `ModManager` with Harmony patches and provides its own mod-management UI: mod groups, activation ordering, an activation progress panel, deployment/migration/rollback and backup, and developer tools for uploading mods to Steam Workshop. Per `README.md` the project is in **maintenance mode: bug fixes only, no new features**; new users are pointed to the SuperDucky launcher (`ducky7go/SuperDucky`). It is built on the `Ducky.Sdk` NuGet package (mod `info.ini` currently `version = 2.0.3`, Workshop id in `publishedFileId`). The repo is open source at `ducky7go/Newbe.BetterModLoader`. Specs/proposals use OpenSpec, kept in the parent repo (see the OpenSpec note above).
+Newbe.BetterModLoader ("BML", Better Mod Loader) is a Unity mod for "Escape from Duckov". It takes over the game's `ModManager` with Harmony patches and provides its own mod-management UI: mod groups, activation ordering, an activation progress panel, deployment, migration, rollback and backup, and developer tools for uploading mods to Steam Workshop. It is built on the `Ducky.Sdk` NuGet package. The mod's `info.ini` is at `version = 2.0.3`. The repo is open source at `ducky7go/Newbe.BetterModLoader`.
+
+Per `README.md` the project is in **maintenance mode: bug fixes only, no new features**. New users are pointed to the SuperDucky launcher (`ducky7go/SuperDucky`).
+
+Behavior or spec changes follow the OpenSpec workflow.
 
 ## Publishing: NOT ALLOWED
 
-**This mod will not be published or updated on the Steam Workshop again.** BML is in maintenance mode and the owner decided that no further release will be made; the monospec entry carries the tag `no-publish` (`.hagicode/monospecs.yaml` in the parent repo).
+**This mod will not be published or updated on the Steam Workshop again.** The owner has frozen it, and the monospec entry carries the tag `no-publish` (`.hagicode/monospecs.yaml` in the parent repo).
 
-- Do not run `./deploy.sh` (it now stops at its first line), `ducky steam push`, `ducky steam delete`, `ducky steam link --force` or `set-visibility.mjs` for this mod, and do not bump `version` in `assets/info.ini`.
-- This includes preview-only and description-only updates, and batch publishes of "all mods": skip `Newbe.BetterModLoader` (Workshop id `3596571766`).
-- Do not edit `publishedFileId`. Do not remove the guard in `deploy.sh` or the `no-publish` tag to get around this; only the owner may lift the freeze, in a request that says so explicitly.
-- Code changes, bug fixes in the repo and local builds (`dotnet build`) are not affected.
+- Do not run `./deploy.sh`. Its first command is an `exit 1` guard, so it stops before doing anything. Do not run `ducky steam push`, `ducky steam delete` or `ducky steam link --force` for this mod either, and do not bump `version` in `assets/info.ini`.
+- This includes preview-only and description-only updates, and batch publishes of "all mods". Skip `Newbe.BetterModLoader` (Workshop id `3596571766`).
+- Do not edit `publishedFileId`. Do not remove the guard in `deploy.sh` or the `no-publish` tag to get around this. Only the owner may lift the freeze, in a request that says so explicitly.
+- Code changes, bug fixes and local builds (`dotnet build`) are not affected.
 
 ## Repository layout
 
-- `BML.slnx` - solution (the mod project and the test project). It also lists `NewMods/Directory.Build.props`, `NewNewMods/Directory.Build.props` and `SDKlibs/Directory.Build.props`; of these `NewNewMods/` and `SDKlibs/` do not exist in this checkout.
-- `NewMods/Newbe.BetterModLoader/` - the only mod project (`Newbe.BetterModLoader.csproj`: `ModName=Newbe.BetterModLoader`, `IncludeHarmony=true`, references `Ducky.Sdk`, `LiteDB`, `R3`, `ObservableCollections.R3`). Main folders: `Main/` (mod manager UI view/VM), `Patches/` (Harmony patches on `ModManager`, `FadeGroupButton`), `Deployments/` (deployment, migration, rollback, old-manager backup), `DeveloperModes/` and `DeveloperInfos/` (local-mod panel, Steam Workshop upload), `ModDataChecks/`, `UI/`, `Audio/`, `Utils/`. Entry point: `ModBehaviour.cs` (`ModBehaviourBase`, Harmony id `bettermodloader`); persistence in `ModLoaderSaveSystem.cs` (under `Application.persistentDataPath/Newbe/Newbe.BetterModLoader`); localization keys in `LK.cs` (`bml_` prefix, 10 languages), constants in `CK.cs`.
-- `NewMods/Newbe.BetterModLoader/assets/` - `info.ini`, `preview.png`, `title/` and `description/` per language, `Locales/` (per-language CSV plus long-text files), generated `lkeys.json` / `keys.hash.txt`, and `Resources/` (fonts, PNG/vector icons, sounds).
-- `Tests/Newbe.BetterModLoader.Tests/` - NUnit + NSubstitute + Shouldly tests (`DeveloperInfoPanelTests`, `ModActivationProgressPanelTests`, `UploadValidationTests`); the mod project exposes internals to it via `InternalsVisibleTo`.
-- `deploy.sh` - release script (see below). `Directory.Packages.props` - central package versions. `nuget.config` - maps `Ducky.Sdk` to the MyGet feed `https://www.myget.org/F/ducky/api/v3/index.json`, everything else to nuget.org.
+- `BML.slnx` - solution: the mod project and the test project. It also lists `NewMods/Directory.Build.props`, `NewNewMods/Directory.Build.props` and `SDKlibs/Directory.Build.props`. `NewNewMods/` and `SDKlibs/` do not exist in this checkout.
+- `NewMods/Newbe.BetterModLoader/` - the only mod project (`ModName=Newbe.BetterModLoader`, `IncludeHarmony=true`; references `Ducky.Sdk`, `LiteDB`, `R3`, `ObservableCollections.R3`, and FMODUnity via a hard-coded `HintPath`).
+  - Folders: `Main/` (mod manager UI view and view model), `Patches/` (Harmony patches: `PatchModManagerIsModActive.cs`, `InterceptShouldActivateModPatch.cs`, `InterceptFadeGroupButton.cs`), `Deployments/` (deployment, migration, rollback, old-manager backup), `DeveloperModes/` and `DeveloperInfos/` (local-mod panel, Steam Workshop upload), `ModDataChecks/`, `UI/`, `Audio/`, `Utils/`.
+  - Entry point: `ModBehaviour.cs` (`ModBehaviourBase`, Harmony id `bettermodloader`). Persistence in `ModLoaderSaveSystem.cs` (under `Application.persistentDataPath`, `Newbe/Newbe.BetterModLoader`). Localization keys in `LK.cs` (`bml_` prefix, 10 languages), constants in `CK.cs`.
+- `NewMods/Newbe.BetterModLoader/assets/` - `info.ini`, `preview.png`, `title/` and `description/` per language, `Locales/` (per-language CSVs, long-text files and `keys.hash.txt`), and `lkeys.json` / `keys.hash.txt` (generated by the SDK build), and `Resources/` (`Font`, `PNG`, `Sounds`, `Vector`).
+- `Tests/Newbe.BetterModLoader.Tests/` - NUnit, NSubstitute and Shouldly tests: `DeveloperInfoPanelTests`, `ModActivationProgressPanelTests`, `UploadValidationTests`. The mod project exposes internals through `InternalsVisibleTo`.
+- `deploy.sh` - release script (disabled, see above). `Directory.Packages.props` - central package versions. `nuget.config` - maps `Ducky.Sdk` to the MyGet feed `https://www.myget.org/F/ducky/api/v3/index.json` and everything else to nuget.org.
 
-## Build / test / run
+## Build and test
 
-- Build: `dotnet build` at the repo root (README), which builds `BML.slnx`. Prerequisite per README: .NET 9.0 SDK. There is no `global.json` and no `.github/` CI in this checkout.
-- Tests: `dotnet test Tests/Newbe.BetterModLoader.Tests/Newbe.BetterModLoader.Tests.csproj` (standard NUnit project; not run here). The tests reference the mod project, which needs the game assemblies.
-- Target frameworks: `NewMods/Directory.Build.props` sets `netstandard2.1`, `LangVersion=preview`, `Nullable=enable`, `ImplicitUsings=false` for the mod. Because MSBuild picks the nearest `Directory.Build.props` (that file does not import the root one), the root `Directory.Build.props` (`net9.0`, `ModsDirectory=$(DuckovPath)Duckov_Data/Mods/`) applies to the test project, not to the mod.
-- Local paths: both `Directory.Build.props` files import an optional, git-ignored `Directory.Build.props.user` (`*.user` is in `.gitignore`). Ducky.Sdk resolves the game from `SteamFolder` / `DuckovFolder` / `ManagedDirectory` / `ModsDirectory`; put those there (or pass `-p:`). The csproj has a hard-coded relative `HintPath` to `FMODUnity.dll` under `~/.local/share/Steam/steamapps/common/Escape from Duckov/...`; adjust it on other machines.
-- Release/deploy (`./deploy.sh`): **disabled, see "Publishing: NOT ALLOWED".** The script exits before doing anything. Below the guard it still describes the old flow: bump the patch number of `version =` in `NewMods/Newbe.BetterModLoader/assets/info.ini`, run `dotnet build -c Release`, then `ducky steam push "$MOD_PATH" --update-description`.
+- Prerequisite per `README.md`: .NET 9.0 SDK. There is no `global.json` and no `.github/` CI in this checkout.
+- Build: `dotnet build` at the repo root, which builds `BML.slnx`.
+- Tests: `dotnet test Tests/Newbe.BetterModLoader.Tests/Newbe.BetterModLoader.Tests.csproj`. The tests reference the mod project, which needs the game assemblies.
+- Target frameworks: `NewMods/Directory.Build.props` sets `netstandard2.1`, `LangVersion=preview`, `Nullable=enable` and `ImplicitUsings=false` for the mod. MSBuild picks the nearest `Directory.Build.props`, and that file does not import the root one. So the root `Directory.Build.props` (`net9.0`, `ModsDirectory=$(DuckovPath)Duckov_Data/Mods/`) applies to the test project only.
+- Local paths: both `Directory.Build.props` files import an optional, git-ignored `Directory.Build.props.user` (`*.user` is in `.gitignore`). Put the game location there, or pass `-p:`. Ducky.Sdk resolves the game from `SteamFolder`, `DuckovFolder`, `ManagedDirectory` or `ModsDirectory`. `DuckovPath` is read by both props files but is not defined in any tracked file.
+- The FMODUnity `HintPath` in the mod csproj is relative to `~/.local/share/Steam/steamapps/common/Escape from Duckov/`. Adjust it on other machines.
+- `NewMods/Directory.Build.props` has a `RemoveIfDeployModFalse` target. When `DeployMod=false` and `DuckovPath` is set, it deletes `$(ModsDirectory)$(ModName)` after the build. Use an isolated `ModsDirectory` for any check that must not touch the game install.
 
 ## Conventions
 
-- Code comments and log messages mix English and Chinese; keep the existing style of the file you edit. Log with `Ducky.Sdk.Logging.Log` and the `[BetterModLoader]` prefix; global usings are in `GlobalUsings.cs`.
-- UI follows an MVVM split with R3 (`View.cs` / `Vm.cs` pairs, `ReactiveProperty`, `ObservableCollections`); async work uses UniTask (`.Forget()` for fire-and-forget).
-- Localization: add keys to `LK.cs` (`bml_...`), let the Ducky.Sdk build regenerate `assets/Locales/*.csv`, `lkeys.json` and `keys.hash.txt`, then fill all 10 languages (`en, zh, zh-hant, ja, ko, fr, de, es, ru, pt`).
-- Harmony patches must stay non-breaking across game updates; patches are applied selectively in `PatchFull()` in `ModBehaviour.cs`, not via blanket `PatchAll`.
+- Code comments and log messages mix English and Chinese. Keep the style of the file you edit.
+- Log with `Ducky.Sdk.Logging.Log` and the `[BetterModLoader]` prefix. Global usings are in `GlobalUsings.cs`.
+- UI follows an MVVM split with R3 (`View.cs` / `Vm.cs` pairs, `ReactiveProperty`, `ObservableCollections`). Async work uses UniTask (`.Forget()` for fire-and-forget).
+- Localization: add keys to `LK.cs` (`bml_...`). The Ducky.Sdk build regenerates `assets/Locales/*.csv`, `lkeys.json` and `keys.hash.txt`. Then fill all 10 languages: `en`, `zh`, `zh-hant`, `ja`, `ko`, `fr`, `de`, `es`, `ru`, `pt`.
+- Harmony patches must stay non-breaking across game updates. Patches are applied selectively in `PatchFull()` in `ModBehaviour.cs`, not with blanket `PatchAll`.
 
 ## Gotchas
 
-- A `.env` file used to be **tracked in git** even though `.gitignore` lists `.env`; it is now untracked (it only ever held two local paths, `STEAM_BASE_DIR` and `MOD_PATH`, no credentials). `deploy.sh` sources it (`MOD_PATH`; README also mentions `STEAM_BASE_DIR`). Do not read, print or copy its contents, do not add new values to it, and never commit `.env`; keep local values untracked.
-- `NewMods/Directory.Build.props` contains leftovers from the sibling `Newbe.Dod` repo (`WeCode`, `subModAssets/`, `Newbe.Dod.Common` project reference, `CopyDodShared` target); they are inactive here (`WeCode` is not set, `subModAssets/` does not exist). `DuckovPath` is referenced in both props files but only Ducky.Sdk's `SteamFolder` / `DuckovFolder` are used by the SDK.
-- Large asset folders (`assets/Resources/Vector`, `PNG`, `Sounds`) are committed; avoid touching them in unrelated changes.
-- On first enable BML disables itself and asks the user to migrate (activation marker `bettermodloader-enabled.txt`); testing activation flows in a real game profile can change which mods are enabled.
+- `.env` is git-ignored (`.gitignore` line 229). It is absent from this checkout. `deploy.sh` sources it for `MOD_PATH` and `STEAM_BASE_DIR`. A `.env` used to be tracked in git; it is now untracked. Do not read, print or copy any `.env` contents, and never commit one.
+- `NewMods/Directory.Build.props` still contains leftovers from the sibling `Newbe.Dod` repo: `WeCode`, `subModAssets/`, a `Newbe.Dod.Common` project reference and a `CopyDodShared` target. They are inactive here (`WeCode` is not set, and `subModAssets/` does not exist). Do not activate them.
+- Large asset folders (`assets/Resources/Vector`, `PNG`, `Sounds`, `Font`) are committed. Avoid touching them in unrelated changes.
+- On first enable BML disables itself and asks the user to migrate (activation marker `bettermodloader-enabled.txt`). Testing activation flows in a real game profile can change which mods are enabled.
 
 ## Related repositories
 
-- `ducky7go/Ducky.Sdk` - SDK package this mod uses (`Directory.Packages.props` pins `Ducky.Sdk` `0.1.7-dev.2`, a MyGet pre-release); the SDK has a `BmlSerilogLogProvider` that looks for the `Newbe.BetterModLoader` assembly.
-- `ducky7go/ducky-cli` - packaging/publishing tool used by `deploy.sh` (`ducky steam push`).
-- `ducky7go/SuperDucky` - launcher recommended to new users instead of BML (README).
+- `ducky7go/Ducky.Sdk` - the SDK package this mod uses. `Directory.Packages.props` pins `Ducky.Sdk` `0.1.7-dev.2`, a MyGet pre-release. The SDK's `BmlSerilogLogProvider` looks for the `Newbe.BetterModLoader` assembly.
+- `ducky7go/ducky-cli` - packaging and publishing tool used by `deploy.sh` (`ducky steam push`).
+- `ducky7go/SuperDucky` - the launcher recommended to new users instead of BML.
 - `Newbe.Dod` - sibling mod repo whose build leftovers remain in `NewMods/Directory.Build.props`.
