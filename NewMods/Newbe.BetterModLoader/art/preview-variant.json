@@ -1,19 +1,18 @@
 {
- "variants": {
-  "preview": {
-   "positive": "masterpiece, best quality, safe, no humans, duck, solo, upper body, puzzle piece, plug, cable, sparks, toolbox, determined, flat color, bold outlines, cartoon style, vivid colors, colorful, tidy, energetic, A cartoon duck in a small tool belt snaps a glowing puzzle piece into a big socket and fills the left and center of the frame from the waist up. Colorful plugs and neatly ordered puzzle blocks line up behind it with bright sparks at the connections. Warm light comes from the left and deep blue shadows fill the background. The lower right of the frame is a dark, quiet floor with a soft vignette.",
-   "negative": "worst quality, low quality, watermark, logo, text, signature, letters, humans, blurry, deformed, border, frame, tiny subject, empty background, multiple ducks",
-   "width": 1344,
-   "height": 768,
-   "unet": "anima-turbo-v1.1.safetensors",
-   "sampler": {
-    "steps": 10,
-    "cfg": 2,
-    "sampler": "euler",
-    "scheduler": "simple"
-   },
-   "seed": 22,
-   "_note": "img-gen steam-preview base: render with ab-prompt-test.mjs --seeds 22, then compose-preview.sh --base art/preview-base.png --out assets/preview.png"
-  }
- }
+  "_note": "Steam preview redrawn with the Agent Girl rule (steam-metadata). Base = art/preview-base.png (rendered by the Codex CLI image_gen tool, one picture per run, no seed; the Codex run used a layout/style reference picture from Newbe.UtilityMods Newbe.RealisticFlashGrenade); preview.png = compose-preview.sh over the base. Replaces the earlier duck-only preview.",
+  "agentId": "series-deepseek",
+  "variants": {
+    "preview": {
+      "provider": "codex",
+      "prompt": "Use the built-in image_gen tool to generate exactly one image. Do not use a CLI, a script or an API for it, and do not write any file yourself.\nCompose the image for a 1344x768 canvas (aspect ratio 1344:768). The attached picture is only a reference for the art style and the layout: modern anime illustration, flat colours, bold dark outlines, expressive face, upper-body framing, one girl filling the whole left half of the frame from the top edge to the bottom edge, large and cropped by the frame, with a broad, calm, softly shaded dark wall on the upper and middle right and a quiet, plain dark surface in the lower-right corner. The girl in the attached picture is a different character; draw the new character described below instead.\nCharacter: DeepSeek girl: long wavy deep navy hair with one ahoge, blue eyes, whale-fin ears, deep navy sweater with a cream collar, a small whale motif on the chest, thoughtful smile.\nScene: She snaps a glowing puzzle piece into a big socket with both hands, while colourful plugs, cables and neatly ordered puzzle blocks line up behind her with bright sparks at the connections. Warm light comes from the left and deep blue shadows fill the background.\nKeep her hands, face, signature accessory and the feature props inside the left half of the frame. Keep the right half of the frame calm and uncluttered with soft gradient light.\nAvoid: text, letters, logo, watermark, signature, border, frame, extra characters, animals, tiny figure.\nWhen the image is ready, reply with its absolute file path and nothing else.\n",
+      "width": 1344,
+      "height": 768,
+      "format": "png"
+    }
+  },
+  "titles": {
+    "zh_preview": "模组加载器",
+    "en_preview": "Better Mod Loader"
+  },
+  "compose": "compose-preview.sh --base art/preview-base.png --out assets/preview.png --title-zh <zh_preview> --title-en <en_preview>"
 }
