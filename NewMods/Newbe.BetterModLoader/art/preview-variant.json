@@ -1,18 +1,53 @@
 {
-  "_note": "Steam preview redrawn with the Agent Girl rule (steam-metadata). Base = art/preview-base.png (rendered by the Codex CLI image_gen tool, one picture per run, no seed; the Codex run used a layout/style reference picture from Newbe.UtilityMods Newbe.RealisticFlashGrenade); preview.png = compose-preview.sh over the base. Replaces the earlier duck-only preview.",
   "agentId": "series-deepseek",
-  "variants": {
-    "preview": {
-      "provider": "codex",
-      "prompt": "Use the built-in image_gen tool to generate exactly one image. Do not use a CLI, a script or an API for it, and do not write any file yourself.\nCompose the image for a 1344x768 canvas (aspect ratio 1344:768). The attached picture is only a reference for the art style and the layout: modern anime illustration, flat colours, bold dark outlines, expressive face, upper-body framing, one girl filling the whole left half of the frame from the top edge to the bottom edge, large and cropped by the frame, with a broad, calm, softly shaded dark wall on the upper and middle right and a quiet, plain dark surface in the lower-right corner. The girl in the attached picture is a different character; draw the new character described below instead.\nCharacter: DeepSeek girl: long wavy deep navy hair with one ahoge, blue eyes, whale-fin ears, deep navy sweater with a cream collar, a small whale motif on the chest, thoughtful smile.\nScene: She snaps a glowing puzzle piece into a big socket with both hands, while colourful plugs, cables and neatly ordered puzzle blocks line up behind her with bright sparks at the connections. Warm light comes from the left and deep blue shadows fill the background.\nKeep her hands, face, signature accessory and the feature props inside the left half of the frame. Keep the right half of the frame calm and uncluttered with soft gradient light.\nAvoid: text, letters, logo, watermark, signature, border, frame, extra characters, animals, tiny figure.\nWhen the image is ready, reply with its absolute file path and nothing else.\n",
-      "width": 1344,
-      "height": 768,
-      "format": "png"
-    }
+  "agentDisplayName": "DeepSeek girl",
+  "agentLook": "long wavy deep navy hair, one ahoge, blue eyes, whale-fin ears, deep navy sweater, cream collar, small whale motif on the chest, thoughtful smile",
+  "feature": "a mod loader that loads other mods",
+  "titleZh": "更好的模组加载器",
+  "titleEn": "Better Mod Loader",
+  "positivePrompt": "A modern digital anime illustration with clean cel-shaded lines and soft cinematic lighting, colour palette of deep navy and warm orange, in the playful world of the extraction game Escape from Duckov. One teenage girl, long wavy deep navy hair, one ahoge, blue eyes, whale-fin ears, deep navy sweater, cream collar, small whale motif on the chest, thoughtful smile. She fills the whole left side of the frame, the left 48 percent of the width, from the top edge to the bottom edge: large and cropped by the frame, her head near the top edge and her body reaching the bottom edge, in an upper-body shot. Her action: she carries a wooden crate stamped with a puzzle-piece symbol toward the glowing gateway. The setting on the left is a busy night loading dock with a conveyor belt of wooden crates feeding into a glowing arched gateway, warm lamps and blue shadows, with the props and effects spread across the left panel, kept clear of the right half. The right half of the frame is a broad, softly shaded dark wall in the same colour palette, calm and low in detail, an empty surface with no objects. The lower right corner is a quiet dark surface. The image contains no text, no letters, no numbers, no logos and no watermark anywhere. Landscape 16:9 composition.",
+  "negativePrompt": "text, letters, digits, numbers, logo, watermark, signature, captions, extra girls, small figure, distant figure, tiny figure, empty scene, photo-realistic, 3d render",
+  "tool": "codex-image.mjs (img-gen, Codex image_gen)",
+  "size": "1344x768",
+  "renderEnvironment": "codex",
+  "rendersTried": 1,
+  "keptRender": "art/preview-base.png",
+  "codexCopy": "/home/newbe36524/.codex/generated_images/01a1d13d-1ff3-77e0-a4ee-2710b2be767a/exec-9bd48357-f6ae-4d24-aad5-1f06e9720231.png",
+  "compose": "steam-metadata/scripts/compose-preview.sh --base art/preview-base.png --out assets/preview.png --title-zh 更好的模组加载器 --title-en 'Better Mod Loader'",
+  "gif": {
+    "lines": [
+      [
+        "更好的模组加载器",
+        "Better Mod Loader"
+      ],
+      [
+        "仅修复缺陷",
+        "Bug fixes only"
+      ],
+      [
+        "已经开源",
+        "Now open source"
+      ]
+    ],
+    "sparkles": [
+      [
+        550,
+        300,
+        34
+      ],
+      [
+        520,
+        370,
+        22
+      ]
+    ]
   },
-  "titles": {
-    "zh_preview": "模组加载器",
-    "en_preview": "Better Mod Loader"
-  },
-  "compose": "compose-preview.sh --base art/preview-base.png --out assets/preview.png --title-zh <zh_preview> --title-en <en_preview>"
+  "gifRecord": {
+    "width": 672,
+    "height": 384,
+    "colors": 192,
+    "frames": 36,
+    "seconds": 5.46,
+    "bytes": 676340
+  }
 }
