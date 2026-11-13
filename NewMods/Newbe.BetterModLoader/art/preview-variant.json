@@ -13,7 +13,7 @@
   "rendersTried": 1,
   "keptRender": "art/preview-base.png",
   "codexCopy": "/home/newbe36524/.codex/generated_images/01a1d13d-1ff3-77e0-a4ee-2710b2be767a/exec-9bd48357-f6ae-4d24-aad5-1f06e9720231.png",
-  "compose": "steam-metadata/scripts/compose-preview.sh --base art/preview-base.png --out assets/preview.png --title-zh 更好的模组加载器 --title-en 'Better Mod Loader'",
+  "compose": "steam-metadata/scripts/compose-preview.sh --base art/preview-base.png --out assets/preview.png --title-zh 更好的模组加载器 --title-en 'Better Mod Loader' --mod-id 'Newbe.BetterModLoader' --agent series-deepseek",
   "gif": {
     "lines": [
       [
@@ -48,6 +48,6 @@
     "colors": 192,
     "frames": 36,
     "seconds": 5.46,
-    "bytes": 676340
+    "bytes": 584075
   }
 }

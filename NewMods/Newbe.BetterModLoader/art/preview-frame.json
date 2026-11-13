@@ -1,0 +1,12 @@
+{
+  "rule": "frame style = sha256(package name) mod 10, see steam-metadata/references/preview-image.md",
+  "modId": "Newbe.BetterModLoader",
+  "agent": "series-deepseek",
+  "frameStyle": "stamp",
+  "frameIndex": 8,
+  "modIdSha256": "5911b44f8e4d9d16ebee18843db8eeafaaea58c7b040ac0fc7815833ccbabf6c",
+  "size": [
+    1344,
+    768
+  ]
+}
