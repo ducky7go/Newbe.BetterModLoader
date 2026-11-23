@@ -1,0 +1,7 @@
+{
+  "schema": 1,
+  "appId": 3167020,
+  "publishedFileId": "3596571766",
+  "visibility": "public",
+  "note": "Identity only, for the required-item (dependency) sync. Publishing stays frozen: no upload, preview or description update; see AGENTS.md."
+}
