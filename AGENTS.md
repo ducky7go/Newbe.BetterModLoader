@@ -17,6 +17,10 @@ Behavior or spec changes follow the OpenSpec workflow.
 - Do not edit `publishedFileId`. Do not remove the guard in `deploy.sh` or the `no-publish` tag to get around this. Only the owner may lift the freeze, in a request that says so explicitly.
 - Code changes, bug fixes and local builds (`dotnet build`) are not affected.
 
+### Exception: the Super Yaya required item (owner request, 2026-11-23)
+
+The owner explicitly asked for this one change: the Steam Workshop **required item** `Hagicode.SuperYaya` (`3844963975`, Newbe.UtilityMods repository) on this item, declared in `NewMods/Newbe.BetterModLoader/workshop/dependencies.json` and synced with `workshop_dependencies` (my_ansible playbook `playbooks/workshop_dependencies.yml`, dry run first). `workshop/workshop.json` next to it holds the item identity only, for that sync. It changes no content, version, preview or description. Everything else under "Publishing: NOT ALLOWED" is unchanged: no `deploy.sh`, no `workshop.py upload`, no preview or description update, no edit of `publishedFileId` or `version`.
+
 ## Repository layout
 
 - `BML.slnx` - solution: the mod project and the test project. It also lists `NewMods/Directory.Build.props`, `NewNewMods/Directory.Build.props` and `SDKlibs/Directory.Build.props`. `NewNewMods/` and `SDKlibs/` do not exist in this checkout.
