@@ -38,45 +38,6 @@
       ]
     ]
   },
-  "compose": "sh steam-metadata/scripts/compose-preview.sh --base art/preview-base.png --out assets/preview.png --title-zh '模组加载器' --title-en 'Better Mod Loader' --mod-id Newbe.BetterModLoader --agent series-deepseek --feature-zh '修复加载器缺陷' --feature-en 'Fixes mod loader bugs'",
-  "composeRecord": {
-    "titleZh": "模组加载器",
-    "titleEn": "Better Mod Loader",
-    "charactersZh": 5,
-    "charactersEn": 17,
-    "fontZh": "/usr/share/fonts/google-noto-sans-cjk-vf-fonts/NotoSansCJK-VF.ttc",
-    "fontEn": "/usr/share/fonts/aajohan-comfortaa-fonts/Comfortaa-Bold.otf",
-    "fontFaceZh": "Noto-Sans-CJK-SC-Bold",
-    "fontFaceEn": "/usr/share/fonts/aajohan-comfortaa-fonts/Comfortaa-Bold.otf",
-    "fontWeightZh": 700,
-    "fontWeightEn": 700,
-    "panelX": 660,
-    "panelY": 161,
-    "panelWidth": 650,
-    "panelHeight": 994,
-    "layout": "left-action-right-language-halves",
-    "dividerY": 658,
-    "featureZh": "修复加载器缺陷",
-    "featureEn": "Fixes mod loader bugs",
-    "titleYZh": 297,
-    "titleHeightZh": 119,
-    "linesZh": 1,
-    "pointsizeZh": 122,
-    "featureYZh": 448,
-    "featureHeightZh": 73,
-    "featureLinesZh": 1,
-    "featurePointsizeZh": 74,
-    "titleYEn": 840,
-    "titleHeightEn": 49,
-    "linesEn": 1,
-    "pointsizeEn": 61,
-    "featureYEn": 921,
-    "featureHeightEn": 52,
-    "featureLinesEn": 1,
-    "featurePointsizeEn": 51,
-    "pngStage": "precision-6bit",
-    "pngBytes": 965939
-  },
   "previousLandscapeRender": {
     "agentId": "series-deepseek",
     "titleZh": "更好的模组加载器",
@@ -89,7 +50,6 @@
     "rendersTried": 1,
     "keptRender": "art/preview-base.png",
     "codexCopy": "/home/newbe36524/.codex/generated_images/01a1d13d-1ff3-77e0-a4ee-2710b2be767a/exec-9bd48357-f6ae-4d24-aad5-1f06e9720231.png",
-    "compose": "steam-metadata/scripts/compose-preview.sh --base art/preview-base.png --out assets/preview.png --title-zh 更好的模组加载器 --title-en 'Better Mod Loader' --mod-id 'Newbe.BetterModLoader' --agent series-deepseek",
     "gif": {
       "lines": [
         [
@@ -117,17 +77,8 @@
           22
         ]
       ]
-    },
-    "gifRecord": {
-      "width": 672,
-      "height": 384,
-      "colors": 192,
-      "frames": 36,
-      "seconds": 5.46,
-      "bytes": 584075
     }
   },
-  "gifCommand": "python3 steam-metadata/scripts/make-preview-gif.py --base art/preview-base.png --preview assets/preview.png --out assets/preview.gif --variant art/preview-variant.json --record art/preview-gif.json",
   "squareRender": {
     "renderEnvironment": "Codex image_gen via img-gen",
     "canvas": [
@@ -141,14 +92,5 @@
     "positivePrompt": "masterpiece, best quality, safe, 1girl, solo, editorial cel-shaded anime game illustration, Illustrate one continuous square scene for a workshop cover. The character has long wavy deep navy hair, one ahoge, blue eyes, whale-fin ears, deep navy sweater, cream collar, small whale motif on the chest, thoughtful smile. A bench at the base holds a modular display rack. She clicks a compact extension cartridge into the rack, with a focused friendly expression. A row of small installed modules changes from dim amber to green. Use a close composition, with her face near the upper left and the hand, prop and visible result large and distinct in the lower left. Stage all figures and focal objects within the leftmost 46 percent. The right 52 percent is a continuous empty dark midnight-indigo gradient, smooth and deeply shaded from top to bottom for later typography. Use crisp clean contours, a refined game key-art finish, and one warm directional light.",
     "negativePrompt": "worst quality, low quality, watermark, logo, text, letters, digits, bad anatomy, bad hands, deformed face, distant figure, extra person, centered character, character on the right, bright right half, patterned right half, frame, border, inset panel, comic panels, collage, split screen, blood, short hair, black hair, orange hair, cat ears, hat",
     "renderSha256": "c1eb4cd05cc1883a6462c512f5a254cc9802ed15e35a2b1cde9be83c83e0b142"
-  },
-  "gifRecord": {
-    "width": 1152,
-    "height": 1152,
-    "colors": 128,
-    "frames": 36,
-    "seconds": 5.46,
-    "bytes": 806736,
-    "font": "/usr/share/fonts/google-noto-sans-cjk-vf-fonts/NotoSansCJK-VF.ttc"
   }
 }
